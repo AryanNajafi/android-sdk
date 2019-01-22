@@ -12,15 +12,9 @@ RUN mkdir /opt/android-sdk && cd /opt/android-sdk && wget --quiet --output-docum
 
 ENV PATH $PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin
 
-RUN apt-get update -qq && apt-get install -y expect
+RUN yes | sdkmanager --licenses && yes | sdkmanager --update
 
-RUN chmod +x /opt/android-accept-licenses.sh
-
-RUN /opt/android-accept-licenses.sh "sdkmanager --licenses"
-
-RUN sdkmanager --update
-RUN sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}"
-RUN sdkmanager "build-tools;${ANDROID_BUILD_TOOLS}"
+RUN sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" "build-tools;${ANDROID_BUILD_TOOLS}"
 
 RUN mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
 
