@@ -6,8 +6,6 @@ ENV ANDROID_COMPILE_SDK 28
 ENV ANDROID_BUILD_TOOLS 28.0.3
 ENV ANDROID_SDK_TOOLS 4333796
 
-COPY android-accept-licenses.sh /opt/
-
 RUN mkdir /opt/android-sdk && cd /opt/android-sdk && wget --quiet --output-document=sdk-tools-linux.zip "https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip" && unzip -q sdk-tools-linux.zip && rm -f sdk-tools-linux.zip
 
 ENV PATH $PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin
