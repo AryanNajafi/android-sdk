@@ -12,7 +12,7 @@ RUN mkdir /opt/android-sdk && cd /opt/android-sdk && wget --quiet --output-docum
 
 ENV PATH $PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin
 
-RUN yes | sdkmanager --licenses && yes | sdkmanager --update
+RUN yes | sdkmanager --licenses && sdkmanager --update
 
 RUN sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}" "build-tools;${ANDROID_BUILD_TOOLS}"
 
