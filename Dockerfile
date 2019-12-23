@@ -2,8 +2,8 @@ FROM openjdk:8-jdk
 
 ENV ANDROID_HOME /opt/android-sdk
 
-ENV ANDROID_COMPILE_SDK 28
-ENV ANDROID_BUILD_TOOLS 28.0.3
+ENV ANDROID_COMPILE_SDK 29
+ENV ANDROID_BUILD_TOOLS 29.0.2
 ENV ANDROID_SDK_TOOLS 4333796
 
 RUN mkdir /opt/android-sdk && cd /opt/android-sdk && wget --quiet --output-document=sdk-tools-linux.zip "https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip" && unzip -q sdk-tools-linux.zip && rm -f sdk-tools-linux.zip
